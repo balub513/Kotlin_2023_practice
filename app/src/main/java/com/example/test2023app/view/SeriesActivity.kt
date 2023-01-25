@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Toast
 import com.example.test2023app.contract.SeriesInfoContract
 import com.example.test2023app.databinding.ActivitySeriesInfoBinding
-import com.example.test2023app.model.response.series_info.SeriesInfo
 import com.example.test2023app.model.response.serieses.Series
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -30,10 +29,10 @@ class SeriesActivity : AppCompatActivity(), SeriesInfoContract.View {
         binding.btnSeriesInfoData.setOnClickListener { presenter.getSeries() }
     }
 
-    override fun successSeriesInfo(seriesInfo: Series) {
+    override fun successSeriesInfo(series: Series) {
         Toast.makeText(applicationContext, "SeriesInfo Success !!", Toast.LENGTH_SHORT).show()
-        Log.d(TAG, "SeriesInfo --->>  $seriesInfo")
-        binding.tvSeriesInfo.text = seriesInfo.toString()
+        Log.d(TAG, "SeriesInfo --->>  $series")
+        binding.tvSeriesInfo.text = series.toString()
 
     }
 
