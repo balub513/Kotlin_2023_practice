@@ -1,8 +1,8 @@
-package com.example.test2023app
+package com.example.test2023app.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class MyApplication : Application() {
+open class MyApplication : Application() {
 }
