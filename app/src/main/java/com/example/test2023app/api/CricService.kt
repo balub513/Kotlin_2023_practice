@@ -5,6 +5,7 @@ import com.example.test2023app.model.response.countries.Countries
 import com.example.test2023app.model.response.current_matches.CurrentMatches
 import com.example.test2023app.model.response.players_match.MatchedPlayers
 import com.example.test2023app.model.response.series_info.SeriesInfo
+import com.example.test2023app.model.response.serieses.Series
 import com.example.test2023app.module.NetworkModule
 import retrofit2.Response
 import retrofit2.http.GET
@@ -21,6 +22,9 @@ interface CricService {
 
     @GET("series_info")
     suspend fun seriesInfo(@Query("apikey") apiKey: String = NetworkModule.API_KEY): Response<SeriesInfo>
+
+    @GET("series")
+    suspend fun series(@Query("apikey") apiKey: String = NetworkModule.API_KEY): Response<Series>
 
     @GET("players")
     suspend fun playersListByName(

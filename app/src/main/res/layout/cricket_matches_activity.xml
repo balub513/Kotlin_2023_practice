@@ -13,4 +13,12 @@
         android:layout_height="wrap_content"
         android:text="Current Matches" />
 
+
+    <TextView
+        android:id="@+id/tv_cricket_matches"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Current Matches" />
+
 </LinearLayout>

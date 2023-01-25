@@ -7,5 +7,6 @@ import javax.inject.Inject
 class CricRepo @Inject constructor(private val service: CricService) {
 
     suspend fun currentMatches() = service.currentMatches()
+    suspend fun series() = service.series()
     suspend fun seriesInfo() = service.seriesInfo()
 }

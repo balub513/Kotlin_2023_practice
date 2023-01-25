@@ -31,9 +31,11 @@ class CricketMatchesActivity : AppCompatActivity() {
     private fun observeResponse() {
         viewmodel.currentMatches.observe(this) {
             Log.d(TAG, it.toString())
+            binding.tvCricketMatches.text =  it.toString()
         }
         viewmodel.currentMatchesFailed.observe(this){
             Log.d(TAG, it.toString())
+            binding.tvCricketMatches.text =  it.toString()
         }
 
     }
