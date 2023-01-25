@@ -1,0 +1,10 @@
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+	.url("https://cricket-live-data.p.rapidapi.com/series")
+	.get()
+	.addHeader("X-RapidAPI-Key", "5bb22dbc1emsh2f72cb04e18478cp19c666jsn82b3082aaa25")
+	.addHeader("X-RapidAPI-Host", "cricket-live-data.p.rapidapi.com")
+	.build();
+
+Response response = client.newCall(request).execute();
