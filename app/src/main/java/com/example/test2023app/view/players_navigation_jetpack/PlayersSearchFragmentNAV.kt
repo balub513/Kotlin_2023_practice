@@ -43,8 +43,6 @@ class PlayersSearchFragmentNAV : Fragment() {
     }
 
     private fun initAdapter() {
-
-
         val playersAdapter = PlayersAdapter(ArrayList<Player>(), requireContext())
         binding.rvSearchedPlayers.adapter = playersAdapter
 
