@@ -1,20 +1,13 @@
 package com.example.test2023app.view.players_navigation_jetpack
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
-import androidx.navigation.fragment.findNavController
 import com.example.test2023app.databinding.FragmentPlayersSearchNavBinding
-import com.example.test2023app.model.response.players_match.Player
 import com.example.test2023app.view.adapters.PlayersAdapter
-import com.example.test2023app.viewmodel.CricketMatchesViewModel
 import com.example.test2023app.viewmodel.PlayersSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,11 +33,13 @@ class PlayersSearchFragmentNAV : Fragment() {
             // findNavController().navigate(PlayersSearchFragmentNAVDirections.actionPlayersSearchFragmentToPlayerInfoFragment(101,"Balu","IND"))
             viewModel.playersByName()
         }
+
     }
 
     private fun initAdapter() {
-        val playersAdapter = PlayersAdapter(ArrayList<Player>(), requireContext())
+        val playersAdapter = PlayersAdapter(ArrayList(), requireContext())
         binding.rvSearchedPlayers.adapter = playersAdapter
 
     }
+
 }
