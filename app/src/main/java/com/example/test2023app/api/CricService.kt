@@ -3,6 +3,7 @@ package com.example.test2023app.api
 import com.example.test2023app.data.ResponseListUsers
 import com.example.test2023app.model.response.countries.Countries
 import com.example.test2023app.model.response.current_matches.CurrentMatches
+import com.example.test2023app.model.response.players_info.PlayersInfo
 import com.example.test2023app.model.response.players_match.MatchedPlayers
 import com.example.test2023app.model.response.series_info.SeriesInfo
 import com.example.test2023app.model.response.serieses.Series
@@ -26,6 +27,10 @@ interface CricService {
     @GET("series")
     suspend fun series(@Query("apikey") apiKey: String = NetworkModule.API_KEY): Response<Series>
 
+    @GET("countries")
+    suspend fun countryList(): Response<Countries>
+
+
     @GET("players")
     suspend fun playersListByName(
         @Query("apikey") apiKey: String = NetworkModule.API_KEY,
@@ -33,7 +38,11 @@ interface CricService {
     )
             : Response<MatchedPlayers>
 
-    @GET("countries")
-    suspend fun countryList(): Response<Countries>
+    @GET("players_info")
+    suspend fun playerInfo(
+        @Query("apikey") apiKey: String = NetworkModule.API_KEY,
+        @Query("id") playerId: String
+    ): Response<PlayersInfo>
+
 
 }

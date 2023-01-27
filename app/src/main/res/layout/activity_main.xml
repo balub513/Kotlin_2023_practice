@@ -15,8 +15,14 @@
     <Button
         android:id="@+id/btn_series_info_"
         android:layout_width="match_parent"
+        android:background="@color/black"
         android:layout_height="wrap_content"
         android:text="Series Info" />
+    <Button
+        android:id="@+id/btn_players_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Players" />
 
 
 </LinearLayout>

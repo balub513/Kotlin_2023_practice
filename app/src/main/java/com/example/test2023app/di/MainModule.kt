@@ -15,7 +15,12 @@ import dagger.hilt.android.components.ActivityComponent
 abstract class MainModule {
 
     @Binds
-    abstract fun bindActivity(activity: SeriesActivity): SeriesInfoContract.View
+    abstract fun bindSeriesActivity(activity: SeriesActivity): SeriesInfoContract.View
+
+//    @Provides
+//    fun getSeriesInfoContractView(activity: SeriesActivity): SeriesInfoContract.View {
+//        return activity;
+//    }
 
     @Binds
     abstract fun bindSeriesInfoPresenter(presenter: SeriesPresenter): SeriesInfoContract.Presenter

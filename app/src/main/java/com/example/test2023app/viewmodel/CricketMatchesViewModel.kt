@@ -6,6 +6,7 @@ import com.example.test2023app.model.response.current_matches.CurrentMatches
 import com.example.test2023app.repo.CricRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -13,7 +14,7 @@ import javax.inject.Inject
 class CricketMatchesViewModel @Inject constructor(
     private val repo: CricRepo,
     application: Application
-) : AndroidViewModel(application) {
+) : BaseViewModel(application) {
 
     companion object {
         private const val TAG: String = "CricketMatchesViewModel"
@@ -27,19 +28,41 @@ class CricketMatchesViewModel @Inject constructor(
 
 
     fun currentMatches() {
-        viewModelScope.launch {
-            try {
-                val currentMatches = repo.currentMatches()
-                if (currentMatches.isSuccessful)
-                    _currentMatches.value = currentMatches.body()
-                else
-                    _currentMatchesFailed.value = "CurrentMatches API failed"
-            } catch (e: Exception) {
-                _currentMatchesFailed.value = e.message
-                e.printStackTrace()
-            }
+        safeLaunch {
+            val currentMatches = repo.currentMatches()
+            if (currentMatches.isSuccessful)
+                _currentMatches.value = currentMatches.body()
+            else
+                _currentMatchesFailed.value = "CurrentMatches API failed"
         }
-
-
     }
 }
+
+
+//fun currentMatches() {
+//        viewModelScope.launch {
+//            try {
+//                val currentMatches = repo.currentMatches()
+//                if (currentMatches.isSuccessful)
+//                    _currentMatches.value = currentMatches.body()
+//                else
+//                    _currentMatchesFailed.value = "CurrentMatches API failed"
+//            } catch (e: Exception) {
+//                _currentMatchesFailed.value = e.message
+//                e.printStackTrace()
+//            }
+//        }
+//}
+//fun ViewModel.concate(a: Int, b: Int, result: (String)-> Unit) {
+//    val s = (a+b).toString()
+//
+//    return result(s)
+//}
+//
+//
+//concate(1, 2) { result ->
+//
+//}
+//concate(1, 2, { result ->
+//
+//})

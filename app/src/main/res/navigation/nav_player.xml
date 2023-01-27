@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_player"
+    app:startDestination="@id/playersSearchFragment">
+
+    <fragment
+        android:id="@+id/playersSearchFragment"
+        android:name="com.example.test2023app.view.players.PlayersSearchFragment"
+        android:label="fragment_players_search"
+        tools:layout="@layout/fragment_players_search" >
+        <action
+            android:id="@+id/action_playersSearchFragment_to_playerInfoFragment"
+            app:destination="@id/playerInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playerInfoFragment"
+        android:name="com.example.test2023app.view.players.PlayerInfoFragment"
+        android:label="Player info fragment"
+        tools:layout="@layout/fragment_player_info" />
+</navigation>

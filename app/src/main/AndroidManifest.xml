@@ -16,6 +16,13 @@
         android:theme="@style/Theme.Test2023App"
         tools:targetApi="31">
         <activity
+            android:name=".view.players.PlayersActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".view.CricketMatchesActivity"
             android:exported="false">
             <meta-data
