@@ -3,11 +3,8 @@ package com.example.test2023app.viewmodel
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.test2023app.model.response.current_matches.CurrentMatches
-import com.example.test2023app.repo.CricRepo
+import com.example.test2023app.repository.CricRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

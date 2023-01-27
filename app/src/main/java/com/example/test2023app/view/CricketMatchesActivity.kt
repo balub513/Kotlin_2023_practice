@@ -3,9 +3,12 @@ package com.example.test2023app.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.test2023app.databinding.CricketMatchesActivityBinding
 import com.example.test2023app.viewmodel.CricketMatchesViewModel
+import com.example.test2023app.viewmodel.PlayersSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,6 +16,7 @@ class CricketMatchesActivity : AppCompatActivity() {
 
     private lateinit var viewmodel: CricketMatchesViewModel
     private lateinit var binding: CricketMatchesActivityBinding
+
 
     companion object {
         private const val TAG: String = "CricketMatchesActivity"

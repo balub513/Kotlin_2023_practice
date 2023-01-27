@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.test2023app.contract.SeriesInfoContract
+import com.example.test2023app.mvp.contract.SeriesInfoContract
 import com.example.test2023app.databinding.ActivitySeriesInfoBinding
 import com.example.test2023app.model.response.serieses.Series
 import dagger.hilt.android.AndroidEntryPoint

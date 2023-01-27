@@ -1,8 +1,8 @@
 package com.example.test2023app.di
 
 import android.app.Activity
-import com.example.test2023app.contract.SeriesInfoContract
-import com.example.test2023app.presenter.SeriesPresenter
+import com.example.test2023app.mvp.contract.SeriesInfoContract
+import com.example.test2023app.mvp.presenter.SeriesPresenter
 import com.example.test2023app.view.SeriesActivity
 import dagger.Binds
 import dagger.Module

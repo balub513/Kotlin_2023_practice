@@ -1,21 +1,17 @@
-package com.example.test2023app.api
+package com.example.test2023app.service
 
-import com.example.test2023app.data.ResponseListUsers
 import com.example.test2023app.model.response.countries.Countries
 import com.example.test2023app.model.response.current_matches.CurrentMatches
 import com.example.test2023app.model.response.players_info.PlayersInfo
 import com.example.test2023app.model.response.players_match.MatchedPlayers
 import com.example.test2023app.model.response.series_info.SeriesInfo
 import com.example.test2023app.model.response.serieses.Series
-import com.example.test2023app.module.NetworkModule
+import com.example.test2023app.di.module.NetworkModule
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface CricService {
-
-    @GET("/api/users?page=2")
-    suspend fun getAllUsers(): Response<ResponseListUsers>
 
     @GET("currentMatches")
     suspend fun currentMatches(@Query("apikey") apiKey: String = NetworkModule.API_KEY):

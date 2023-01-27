@@ -1,7 +1,7 @@
-package com.example.test2023app.presenter
+package com.example.test2023app.mvp.presenter
 
-import com.example.test2023app.contract.SeriesInfoContract
-import com.example.test2023app.repo.CricRepo
+import com.example.test2023app.mvp.contract.SeriesInfoContract
+import com.example.test2023app.repository.CricRepo
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext

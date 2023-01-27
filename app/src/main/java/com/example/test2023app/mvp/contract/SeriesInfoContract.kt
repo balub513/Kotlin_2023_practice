@@ -1,4 +1,4 @@
-package com.example.test2023app.contract
+package com.example.test2023app.mvp.contract
 
 import com.example.test2023app.model.response.series_info.SeriesInfo
 import com.example.test2023app.model.response.serieses.Series

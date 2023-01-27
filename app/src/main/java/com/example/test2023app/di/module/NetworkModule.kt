@@ -1,6 +1,6 @@
-package com.example.test2023app.module
+package com.example.test2023app.di.module
 
-import com.example.test2023app.api.CricService
+import com.example.test2023app.service.CricService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,10 +1,11 @@
 package com.example.test2023app.view
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.test2023app.databinding.ActivityMainBinding
-import com.example.test2023app.view.players.PlayersActivity
+import com.example.test2023app.view.players_navigation_jetpack.PlayersActivityNAV
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,7 +22,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SeriesActivity::class.java))
         }
         binding.btnPlayers.setOnClickListener {
-            startActivity(Intent(this, PlayersActivity::class.java))
+            startActivity(Intent(this, PlayersActivityNAV::class.java))
+
+//            Navigation deeplink test
+//            val intent = Intent()
+//            intent.data = Uri.parse("app://player/200?name=BBK&country=INDIA")
+            startActivity(intent)
         }
     }
 }

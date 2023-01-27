@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/playersSearchFragment"
-        android:name="com.example.test2023app.view.players.PlayersSearchFragment"
+        android:name="com.example.test2023app.view.players_navigation_jetpack.PlayersSearchFragmentNAV"
         android:label="fragment_players_search"
-        tools:layout="@layout/fragment_players_search" >
+        tools:layout="@layout/fragment_players_search_nav" >
         <action
             android:id="@+id/action_playersSearchFragment_to_playerInfoFragment"
             app:destination="@id/playerInfoFragment" />
@@ -17,11 +17,21 @@
 
     <fragment
         android:id="@+id/playerInfoFragment"
-        android:name="com.example.test2023app.view.players.PlayerInfoFragment"
+        android:name="com.example.test2023app.view.players_navigation_jetpack.PlayerInfoFragment"
         android:label="Player info fragment"
-        tools:layout="@layout/fragment_player_info" >
+        tools:layout="@layout/fragment_player_info_nav">
         <argument
             android:name="id"
             app:argType="integer" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="country"
+            app:argType="string" />
+        <deepLink
+            app:uri="app://player/{id}?name={name}&amp;country={country}" />
+        <deepLink
+            app:uri="http://www.balu.com/player/{id}?name={name}&amp;country={country}" />
     </fragment>
 </navigation>
