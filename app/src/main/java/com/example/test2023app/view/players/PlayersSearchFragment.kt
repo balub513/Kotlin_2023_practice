@@ -25,7 +25,7 @@ class PlayersSearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSearchPlayer.setOnClickListener {
-            findNavController().navigate(PlayersSearchFragmentDirections.actionPlayersSearchFragmentToPlayerInfoFragment())
+            findNavController().navigate(PlayersSearchFragmentDirections.actionPlayersSearchFragmentToPlayerInfoFragment(101))
 
         }
     }
