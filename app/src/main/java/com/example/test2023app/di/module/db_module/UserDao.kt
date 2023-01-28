@@ -11,18 +11,18 @@ import androidx.room.Update
 interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addUser(userEntity: UserEntity)
+    suspend fun addUser(userEntity: UserEntity)
 
     @Update
-    fun updateUser(userEntity: UserEntity)
+    suspend fun updateUser(userEntity: UserEntity)
 
     @Delete
-    fun deleteUser(userEntity: UserEntity)
+    suspend fun deleteUser(userEntity: UserEntity)
 
     @Query("SELECT * FROM ${DBConstants.USER_TABLE} ORDER BY name DESC")
-    fun getAllUsers(): MutableList<UserEntity>
+    suspend fun getAllUsers(): MutableList<UserEntity>
 
     @Query("SELECT * FROM ${DBConstants.USER_TABLE} WHERE userId LIKE :id")
-    fun getUserByID(id: Int): UserEntity
+    suspend fun getUserByID(id: Int): UserEntity
 
 }

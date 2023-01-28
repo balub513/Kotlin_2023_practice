@@ -14,3 +14,13 @@ fun LifecycleOwner.safeLaunch(block: suspend CoroutineScope.() -> Unit) {
         }
     }
 }
+
+fun LifecycleOwner.safeLaunchWhenResume(block: suspend CoroutineScope.() -> Unit) {
+    lifecycleScope.launchWhenResumed {
+        try {
+            block()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+}

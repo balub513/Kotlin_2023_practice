@@ -10,7 +10,7 @@ import com.example.test2023app.repository.CricRepo
 import com.example.test2023app.utils.safeLaunch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,6 +29,10 @@ class PlayersSearchViewModel @Inject constructor(
         MutableStateFlow(java.util.ArrayList())
     val playersFailedStateFlow = MutableStateFlow<String?>(null)
 
+    val searchStringStateFlow: MutableStateFlow<String> = MutableStateFlow("")
+
+    val clickListenSharedFlow: MutableSharedFlow<String> = MutableSharedFlow(1)
+
     val resultsCount: MutableStateFlow<Int> =
         MutableStateFlow(0)
 
@@ -44,8 +48,13 @@ class PlayersSearchViewModel @Inject constructor(
         testDB()
     }
 
+    fun nextClicked() {
+        clickListenSharedFlow.tryEmit("Next Button Clicked")
+    }
+
+
     private fun testDB() {
-        viewModelScope.launch(Dispatchers.IO) {
+        safeLaunch(Dispatchers.IO) {
             dbRepository.insertUser(UserEntity(name = "BALU", email = "balub513@gmail.com"))
             val users = dbRepository.fetchUsers()
             Log.d("Users", users.toString())

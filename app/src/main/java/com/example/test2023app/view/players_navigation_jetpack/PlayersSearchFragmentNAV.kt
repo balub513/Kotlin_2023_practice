@@ -1,18 +1,16 @@
 package com.example.test2023app.view.players_navigation_jetpack
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+
+import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.example.test2023app.R
 import com.example.test2023app.databinding.FragmentPlayersSearchNavBinding
 import com.example.test2023app.utils.safeLaunch
+import com.example.test2023app.utils.safeLaunchWhenResume
 import com.example.test2023app.view.adapters.PlayersAdapter
 import com.example.test2023app.viewmodel.PlayersSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.*
 
 @AndroidEntryPoint
 class PlayersSearchFragmentNAV :
@@ -36,12 +34,27 @@ class PlayersSearchFragmentNAV :
             // findNavController().navigate(PlayersSearchFragmentNAVDirections.actionPlayersSearchFragmentToPlayerInfoFragment(101,"Balu","IND"))
             binding.etPlayerSearch.text?.let { vm.playersByName(binding.etPlayerSearch.text.toString()) }
         }
+
+        safeLaunchWhenResume {
+            vm.searchStringStateFlow
+                .debounce(300)
+                .collect {
+                    vm.playersByName(it)
+                }
+        }
     }
 
     override fun setObservers() {
-        safeLaunch {
+        safeLaunchWhenResume {
             vm.playersStateFlow.collect {
                 playersAdapter.notifyDataSetChanged(it)
+            }
+        }
+        safeLaunchWhenResume {
+            vm.clickListenSharedFlow.collect {
+                Toast.makeText(context, "shared flow Next click listened", Toast.LENGTH_SHORT)
+                    .show()
+                //todo Navigate to Next screen
             }
         }
     }

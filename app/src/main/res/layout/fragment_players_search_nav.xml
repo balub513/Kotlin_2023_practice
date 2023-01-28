@@ -26,7 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="@={vm.searchStringStateFlow}" />
 
             <Button
                 android:id="@+id/btn_search_player"
@@ -36,25 +37,55 @@
                 android:text="SEARCH" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_total_search_results"
+        <LinearLayout
+            android:id="@+id/llw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ll_search"
-            android:layout_margin="5dp"
+            android:orientation="horizontal">
 
-            android:text="@{vm.resultsCount+` players found`}"
-            android:textStyle="italic" />
+            <TextView
+                android:id="@+id/tv_total_search_results"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@{vm.resultsCount+` players`}"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/tv_searched_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@id/tv_total_search_results"
+                android:layout_weight="1"
+                android:text="@{vm.searchStringStateFlow}"
+                android:textColor="@android:color/holo_green_dark"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_searched_players"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tv_total_search_results"
+            android:layout_below="@+id/llw"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <Button
+            android:id="@+id/btn_Next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:onClick="@{()->vm.nextClicked()}"
+            android:layout_margin="5dp"
+            android:text="NEXT" />
     </RelativeLayout>
 </layout><!--    app:submitList="@{vm.playersStateFlow}"-->
