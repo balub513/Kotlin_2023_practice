@@ -12,36 +12,12 @@ open class BaseViewModel constructor(application: Application) : AndroidViewMode
 
     var showProgressStateFlow: MutableStateFlow<Boolean> = MutableStateFlow(false)
 
-    fun ViewModel.safeLaunch(block: suspend CoroutineScope.() -> Unit) {
-        this.viewModelScope.launch {
-            try {
-                block()
-            } catch (exception: Exception) {
-                exception.printStackTrace()
-            }
-        }
-    }
 
-    fun ViewModel.safeLaunchWithLoading(block: suspend CoroutineScope.() -> Unit) {
-        viewModelScope.launch {
-            try {
-                showProgress()
-                block.invoke(this)
-            } catch (e: Exception) {
-                e.printStackTrace()
-                dismissProgress()
-            } finally {
-                dismissProgress()
-            }
-        }
-
-    }
-
-    private fun showProgress() {
+    fun showProgress() {
         showProgressStateFlow.value = true
     }
 
-    private fun dismissProgress() {
+    fun dismissProgress() {
         showProgressStateFlow.value = false
     }
 }

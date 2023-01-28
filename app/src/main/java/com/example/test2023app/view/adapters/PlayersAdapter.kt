@@ -7,11 +7,12 @@ import androidx.databinding.DataBindingUtil
 import android.view.LayoutInflater
 import com.example.test2023app.R
 import android.widget.Toast
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test2023app.BR
 import com.example.test2023app.databinding.ItemRowPlayerBinding
 
-class PlayersAdapter(private val playersList: List<Player>, private val context: Context) :
+class PlayersAdapter(private val playersList: ArrayList<Player>, private val context: Context) :
     RecyclerView.Adapter<PlayersAdapter.MyViewHolder>(), CustomClickListener {
 
     override fun onCreateViewHolder(
@@ -40,6 +41,12 @@ class PlayersAdapter(private val playersList: List<Player>, private val context:
             context, "You clicked " + f.name,
             Toast.LENGTH_LONG
         ).show()
+    }
+
+    fun notifyDataSetChanged(it: java.util.ArrayList<Player>) {
+        playersList.clear()
+        playersList.addAll(it)
+        notifyDataSetChanged()
     }
 
     inner class MyViewHolder(var itemRowBinding: ItemRowPlayerBinding) : RecyclerView.ViewHolder(

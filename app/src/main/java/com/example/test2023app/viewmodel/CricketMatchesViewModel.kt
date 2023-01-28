@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.test2023app.model.response.current_matches.CurrentMatches
 import com.example.test2023app.repository.CricRepo
+import com.example.test2023app.utils.safeLaunch
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

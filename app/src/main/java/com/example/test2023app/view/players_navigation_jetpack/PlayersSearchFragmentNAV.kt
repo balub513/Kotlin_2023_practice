@@ -6,40 +6,51 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import com.example.test2023app.R
 import com.example.test2023app.databinding.FragmentPlayersSearchNavBinding
+import com.example.test2023app.utils.safeLaunch
 import com.example.test2023app.view.adapters.PlayersAdapter
 import com.example.test2023app.viewmodel.PlayersSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PlayersSearchFragmentNAV : Fragment() {
+class PlayersSearchFragmentNAV :
+    BaseFragment<FragmentPlayersSearchNavBinding, PlayersSearchViewModel>() {
 
-    private lateinit var binding: FragmentPlayersSearchNavBinding
-    private val viewModel: PlayersSearchViewModel by viewModels()
+    private lateinit var playersAdapter: PlayersAdapter
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentPlayersSearchNavBinding.inflate(layoutInflater, container, false)
-        return binding.root
+    override fun getViewModel(): PlayersSearchViewModel {
+        val viewModel: PlayersSearchViewModel by viewModels()
+        return viewModel
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun getLayoutResource(): Int {
+        return R.layout.fragment_players_search_nav
+    }
+
+    override fun setup() {
+        binding.vm = vm
         initAdapter()
         binding.btnSearchPlayer.setOnClickListener {
             // findNavController().navigate(PlayersSearchFragmentNAVDirections.actionPlayersSearchFragmentToPlayerInfoFragment(101,"Balu","IND"))
-            viewModel.playersByName()
+            binding.etPlayerSearch.text?.let { vm.playersByName(binding.etPlayerSearch.text.toString()) }
         }
+    }
 
+    override fun setObservers() {
+        safeLaunch {
+            vm.playersStateFlow.collect {
+                playersAdapter.notifyDataSetChanged(it)
+            }
+        }
     }
 
     private fun initAdapter() {
-        val playersAdapter = PlayersAdapter(ArrayList(), requireContext())
+        playersAdapter = PlayersAdapter(ArrayList(), requireContext())
         binding.rvSearchedPlayers.adapter = playersAdapter
 
     }
+
 
 }
