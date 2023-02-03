@@ -1,12 +1,8 @@
 package com.example.test2023app.model.response.players_info
 
+import com.example.test2023app.model.response.BaseResponse
 import com.google.gson.annotations.SerializedName
 
 data class PlayersInfo (
-
-  @SerializedName("apikey" ) var apikey : String? = null,
-  @SerializedName("data"   ) var data   : PlayerData?   = PlayerData(),
-  @SerializedName("status" ) var status : String? = null,
-  @SerializedName("info"   ) var info   : Info?   = Info()
-
-)
+  @SerializedName("data"   ) var data   : PlayerData?   = PlayerData()
+): BaseResponse()

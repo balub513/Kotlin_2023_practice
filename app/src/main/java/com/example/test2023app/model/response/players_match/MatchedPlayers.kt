@@ -1,13 +1,9 @@
 package com.example.test2023app.model.response.players_match
 
+import com.example.test2023app.model.response.BaseResponse
 import com.google.gson.annotations.SerializedName
 
 
 data class MatchedPlayers (
-
-  @SerializedName("apikey" ) var apikey : String?         = null,
-  @SerializedName("data"   ) var data   : ArrayList<Player> = arrayListOf(),
-  @SerializedName("status" ) var status : String?         = null,
-  @SerializedName("info"   ) var info   : Info?           = Info()
-
-)
+  @SerializedName("data"   ) var data   : ArrayList<Player> = arrayListOf()
+): BaseResponse()

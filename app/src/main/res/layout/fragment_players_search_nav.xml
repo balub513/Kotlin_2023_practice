@@ -79,6 +79,8 @@
             android:layout_marginBottom="5dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
+  <!--      <Button
+            isVisible="@{vm.searchStringStateFlow != null}"-->
         <Button
             android:id="@+id/btn_Next"
             android:layout_width="match_parent"

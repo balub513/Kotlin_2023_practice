@@ -19,6 +19,11 @@
         android:layout_height="wrap_content"
         android:text="Series Info" />
     <Button
+        android:id="@+id/btn_series_info_sealed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Series Info with SEALED" />
+    <Button
         android:id="@+id/btn_players_"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

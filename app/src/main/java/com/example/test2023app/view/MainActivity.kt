@@ -29,5 +29,9 @@ class MainActivity : AppCompatActivity() {
 //            intent.data = Uri.parse("app://player/200?name=BBK&country=INDIA")
             startActivity(intent)
         }
+
+        binding.btnSeriesInfoSealed.setOnClickListener {
+            startActivity(Intent(this, SeriesActivitySealed::class.java))
+        }
     }
 }

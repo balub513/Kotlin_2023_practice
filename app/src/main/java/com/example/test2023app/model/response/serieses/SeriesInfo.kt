@@ -3,7 +3,7 @@ package com.example.test2023app.model.response.serieses
 import com.google.gson.annotations.SerializedName
 
 
-data class Data (
+data class SeriesInfo (
 
   @SerializedName("id"        ) var id        : String? = null,
   @SerializedName("name"      ) var name      : String? = null,

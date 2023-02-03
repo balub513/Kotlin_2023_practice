@@ -63,6 +63,7 @@ class PlayersSearchFragmentNAV :
         playersAdapter = PlayersAdapter(ArrayList(), requireContext())
         binding.rvSearchedPlayers.adapter = playersAdapter
 
+
     }
 
 

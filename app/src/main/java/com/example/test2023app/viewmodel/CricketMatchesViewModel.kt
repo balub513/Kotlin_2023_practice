@@ -29,9 +29,9 @@ class CricketMatchesViewModel @Inject constructor(
         safeLaunch {
             val currentMatches = repo.currentMatches()
             if (currentMatches.isSuccessful)
-                _currentMatches.value = currentMatches.body()
+                _currentMatches.postValue(currentMatches.body())
             else
-                _currentMatchesFailed.value = "CurrentMatches API failed"
+                _currentMatchesFailed.postValue("CurrentMatches API failed")
         }
     }
 }

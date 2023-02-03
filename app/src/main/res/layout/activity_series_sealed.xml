@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.SeriesActivitySealed">
+
+  <Button
+      android:id="@+id/btn_series_info_data_sealed"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Series Info_sealed_approach" />
+
+
+  <TextView
+      android:id="@+id/tv_series_info_sealed"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:text="Series Info" />
+
+</LinearLayout>

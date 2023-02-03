@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-fun ViewModel.safeLaunch(dispatcher : CoroutineDispatcher= Dispatchers.Default,block: suspend CoroutineScope.() -> Unit) {
+fun ViewModel.safeLaunch(dispatcher : CoroutineDispatcher= Dispatchers.IO,block: suspend CoroutineScope.() -> Unit) {
     this.viewModelScope.launch(dispatcher) {
         try {
             block()
