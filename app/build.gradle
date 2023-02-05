@@ -21,7 +21,7 @@ android {
     }
     testOptions {
         // Used for Unit testing Android dependent elements in /test folder
-        unitTests.includeAndroidResources  = true
+        unitTests.includeAndroidResources = true
         unitTests.returnDefaultValues = true
     }
     dataBinding {
@@ -95,8 +95,11 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.4"
     implementation "androidx.room:room-ktx:2.2.5"
 
+    //Paging 3
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
 
-
+    //Data Store
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
 
 
 //    implementation "android.arch.lifecycle:extensions:1.1.0"
@@ -115,8 +118,6 @@ dependencies {
 //    api 'com.google.dagger:dagger-android:2.44'
 //    api 'com.google.dagger:dagger-android-support:2.44'
 //    kapt 'com.google.dagger:dagger-android-processor:2.44'
-
-
 
 
 }

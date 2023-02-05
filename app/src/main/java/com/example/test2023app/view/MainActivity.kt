@@ -29,9 +29,16 @@ class MainActivity : AppCompatActivity() {
 //            intent.data = Uri.parse("app://player/200?name=BBK&country=INDIA")
             startActivity(intent)
         }
+        binding.btnDataStore.setOnClickListener {
+            startActivity(Intent(this, DataStoreActivity::class.java))
+        }
 
         binding.btnSeriesInfoSealed.setOnClickListener {
             startActivity(Intent(this, SeriesActivitySealed::class.java))
         }
+        binding.btnPager3.setOnClickListener {
+            startActivity(Intent(this, Pager3Activity::class.java))
+        }
+
     }
 }

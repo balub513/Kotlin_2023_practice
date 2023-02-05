@@ -28,6 +28,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Players" />
+    <Button
+        android:id="@+id/btn_data_store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data Store (SharedPreff depricated)" />
+    <Button
+        android:id="@+id/btn_pager3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jetpack: Pager3" />
 
 
 </LinearLayout>
