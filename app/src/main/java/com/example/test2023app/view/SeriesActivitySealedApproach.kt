@@ -6,13 +6,13 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.test2023app.databinding.ActivitySeriesSealedBinding
 import com.example.test2023app.model.NetworkResult
-import com.example.test2023app.viewmodel.SeriesInfoViewModel
+import com.example.test2023app.viewmodel.SeriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SeriesActivitySealed : AppCompatActivity() {
 
-    private lateinit var viewmodel: SeriesInfoViewModel
+    private lateinit var viewmodel: SeriesViewModel
     private lateinit var binding: ActivitySeriesSealedBinding
 
 
@@ -25,13 +25,13 @@ class SeriesActivitySealed : AppCompatActivity() {
         binding = ActivitySeriesSealedBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewmodel =
-            ViewModelProvider(this)[SeriesInfoViewModel::class.java]
+            ViewModelProvider(this)[SeriesViewModel::class.java]
         binding.btnSeriesInfoDataSealed.setOnClickListener { getSeriesInfo() }
         observeResponse()
     }
 
     private fun observeResponse() {
-        viewmodel.responseSeriesInfo.observe(this) { response ->
+        viewmodel.responseSeries.observe(this) { response ->
             when (response) {
                 is NetworkResult.Success -> {
                     binding.tvSeriesInfoSealed.text = response.data?.body().toString()
@@ -48,6 +48,6 @@ class SeriesActivitySealed : AppCompatActivity() {
     }
 
     private fun getSeriesInfo() {
-        viewmodel.seriesInfo()
+        viewmodel.series()
     }
 }

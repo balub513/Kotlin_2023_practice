@@ -4,7 +4,6 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.test2023app.model.NetworkResult
-import com.example.test2023app.model.response.series_info.SeriesInfo
 import com.example.test2023app.model.response.serieses.Series
 import com.example.test2023app.repository.CricRepo
 import com.example.test2023app.utils.safeLaunch
@@ -13,7 +12,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class SeriesInfoViewModel @Inject constructor(
+class SeriesViewModel @Inject constructor(
     private val repo: CricRepo,
     application: Application
 ) : BaseViewModel(application) {
@@ -22,18 +21,18 @@ class SeriesInfoViewModel @Inject constructor(
         private const val TAG: String = "CricketMatchesViewModel"
     }
 
-    var responseSeriesInfo: MutableLiveData<NetworkResult<Response<Series>>> =
+    var responseSeries: MutableLiveData<NetworkResult<Response<Series>>> =
         MutableLiveData<NetworkResult<Response<Series>>>()
 
-    fun seriesInfo() {
+    fun series() {
         Log.d(TAG,"seriesInfo sealed")
-        responseSeriesInfo.value = NetworkResult.Loading()
+        responseSeries.value = NetworkResult.Loading()
         safeLaunch {
             val response = repo.series()
             when {
                 response.isSuccessful -> {
                     val success = NetworkResult.Success(response)
-                    responseSeriesInfo.postValue(success)
+                    responseSeries.postValue(success)
                 }
                 else -> {
                     NetworkResult.Error("message = ", null)
