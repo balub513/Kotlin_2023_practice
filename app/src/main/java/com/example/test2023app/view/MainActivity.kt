@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnPager3.setOnClickListener {
             startActivity(Intent(this, Pager3Activity::class.java))
         }
+        binding.btnConstrainlayout.setOnClickListener {
+            startActivity(Intent(this, ConstrainLayoutActivity::class.java))
+        }
 
     }
 }
