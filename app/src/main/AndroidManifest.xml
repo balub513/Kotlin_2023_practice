@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -60,16 +59,15 @@
         </activity>
         <activity
             android:name="com.example.test2023app.view.Pager3Activity"
-            android:exported="false"
-            >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity android:name=".view.SeriesActivitySealed"></activity>
+        <activity
+            android:name="com.example.test2023app.view.FlowOperatorsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
-
-
-

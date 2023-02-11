@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.test2023app.databinding.ActivitySeriesSealedBinding
 import com.example.test2023app.model.NetworkResult
+import com.example.test2023app.utils.safeLaunchWhenResume
 import com.example.test2023app.viewmodel.SeriesViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class SeriesActivitySealed : AppCompatActivity() {
@@ -31,20 +35,22 @@ class SeriesActivitySealed : AppCompatActivity() {
     }
 
     private fun observeResponse() {
-        viewmodel.responseSeries.observe(this) { response ->
-            when (response) {
-                is NetworkResult.Success -> {
-                    binding.tvSeriesInfoSealed.text = response.data?.body().toString()
-                }
-                is NetworkResult.Loading -> {
-                    Toast.makeText(applicationContext, "Loading ..", Toast.LENGTH_SHORT).show()
-                }
-                is NetworkResult.Error -> {
-                    binding.tvSeriesInfoSealed.text = response.data.toString()
+        lifecycleScope.launchWhenStarted {
+            viewmodel.responseSeries.collect{response ->
+                when (response) {
+                    is NetworkResult.Success -> {
+                        binding.tvSeriesInfoSealed.text = response.data?.body().toString()
+                    }
+                    is NetworkResult.Loading -> {
+                        Toast.makeText(applicationContext, "Loading ..", Toast.LENGTH_SHORT).show()
+                    }
+                    is NetworkResult.Error -> {
+                        binding.tvSeriesInfoSealed.text = response.data.toString()
+                    }
+                    else -> {}
                 }
             }
         }
-
     }
 
     private fun getSeriesInfo() {

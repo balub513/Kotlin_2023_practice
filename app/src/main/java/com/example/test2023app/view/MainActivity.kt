@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnFlowOpearators.setOnClickListener{
+            startActivity(Intent(this, FlowOperatorsActivity::class.java))
+        }
         binding.btnCurrentMatches.setOnClickListener {
             startActivity(Intent(this, CricketMatchesActivity::class.java))
         }
