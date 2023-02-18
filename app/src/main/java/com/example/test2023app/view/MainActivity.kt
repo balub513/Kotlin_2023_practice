@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnConstrainlayout.setOnClickListener {
             startActivity(Intent(this, ConstrainLayoutActivity::class.java))
         }
+        binding.btnTwoWayDatabinding.setOnClickListener {
+            startActivity(Intent(this, TwoWayDBindingActivity::class.java))
+        }
 
     }
 }

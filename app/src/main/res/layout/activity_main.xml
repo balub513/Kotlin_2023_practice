@@ -48,6 +48,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Constrain Layout" />
+    <Button
+        android:id="@+id/btn_two_way_databinding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2 Way Data binding" />
 
 
 </LinearLayout>
