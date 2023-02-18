@@ -1,5 +1,6 @@
 package com.example.test2023app.view
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ import com.example.test2023app.viewmodel.Nation
 import com.example.test2023app.viewmodel.TwoWayDBindingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class TwoWayDBindingActivity : AppCompatActivity() {
@@ -28,30 +30,56 @@ class TwoWayDBindingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTwoWayDbindingBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         viewModel = ViewModelProvider(this)[TwoWayDBindingViewModel::class.java]
-//        binding.register.setOnClickListener { attachObservers() }
+        binding.vm1 = viewModel
+        setContentView(binding.root)
+        binding.register.setOnClickListener { getAllValues() }
         attachObservers()
     }
 
-    private fun attachObservers() {
-        lifecycleScope.launchWhenResumed {
+    private fun getAllValues() {
+        lifecycleScope.launch {
             val userName: String = viewModel.userNameFlow.value
             val email: String = viewModel.emailFlow.value
             val password: String = viewModel.passwordFlow.value
             val nationality: Nation = viewModel.nationalityFlow.value
             val gender: Gender = viewModel.genderFlow.value
 
+            Log.d("$TAG -->>", userName)
+            Log.d("$TAG -->>", email)
+            Log.d("$TAG -->>", password)
+            Log.d("$TAG -->>", nationality.toString())
+            Log.d("$TAG -->>", gender.toString())
+        }
+    }
+
+    @SuppressLint("LongLogTag")
+    private fun attachObservers() {
+        lifecycleScope.launchWhenResumed {
+
             viewModel.userNameFlow.collectLatest {
-                Log.d(TAG, it)
+                Log.d("$TAG userNameFlow", it)
             }
-
-            Log.d(TAG, userName)
-            Log.d(TAG, email)
-            Log.d(TAG, password)
-            Log.d(TAG, nationality.toString())
-            Log.d(TAG, gender.toString())
-
+        }
+        lifecycleScope.launch {
+            viewModel.emailFlow.collectLatest {
+                Log.d("$TAG emailFlow", it)
+            }
+        }
+        lifecycleScope.launch {
+            viewModel.passwordFlow.collectLatest {
+                Log.d("$TAG passwordFlow", it)
+            }
+        }
+        lifecycleScope.launch {
+            viewModel.nationalityFlow.collectLatest {
+                Log.d("$TAG nationalityFlow", it.toString())
+            }
+        }
+        lifecycleScope.launch {
+            viewModel.genderFlow.collectLatest {
+                Log.d("$TAG genderFlow", it.toString())
+            }
         }
     }
 }

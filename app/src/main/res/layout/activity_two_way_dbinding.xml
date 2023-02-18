@@ -15,9 +15,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        tools:context=".view.TwoWayDBindingActivity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".view.TwoWayDBindingActivity">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_v"
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_email" />
 
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_pwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -195,16 +195,14 @@
 
         <TextView
             android:id="@+id/tvDbResults"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:text="@{vm1.userNameFlow}"
-            android:textColor="@color/teal_200"
+            android:text="@{vm1.emailFlow}"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/register"
-            tools:ignore="NotSibling"></TextView>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
