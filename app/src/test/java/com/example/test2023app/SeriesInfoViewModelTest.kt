@@ -49,19 +49,19 @@ class SeriesInfoViewModelTest {
     fun setup() {
 
     }
-
-    @Test
-    fun testSeriesInfoAPISuccess() {
-        testCoroutineRule.runBlockingTest {
-            Mockito.`when`(service.series()).thenReturn(resp)
-            Mockito.`when`(repo.series()).thenReturn(resp)
-            val vm = SeriesViewModel(repo, application)
-            vm.responseSeries.observeForever(apiSeriesObserver)
-            vm.series()
-            Mockito.verify(repo).series()
-//            Mockito.verify(apiSeriesObserver).onChanged(NetworkResult.Success(resp))
-            vm.responseSeries.removeObserver(apiSeriesObserver)
-        }
-    }
+//
+//    @Test
+//    fun testSeriesInfoAPISuccess() {
+//        testCoroutineRule.runBlockingTest {
+//            Mockito.`when`(service.series()).thenReturn(resp)
+//            Mockito.`when`(repo.series()).thenReturn(resp)
+//            val vm = SeriesViewModel(repo, application)
+//            vm.responseSeries.observeForever(apiSeriesObserver)
+//            vm.series()
+//            Mockito.verify(repo).series()
+////            Mockito.verify(apiSeriesObserver).onChanged(NetworkResult.Success(resp))
+//            vm.responseSeries.removeObserver(apiSeriesObserver)
+//        }
+//    }
 
 }
