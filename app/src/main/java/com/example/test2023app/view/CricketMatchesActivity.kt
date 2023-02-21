@@ -1,14 +1,11 @@
 package com.example.test2023app.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.test2023app.databinding.CricketMatchesActivityBinding
 import com.example.test2023app.viewmodel.CricketMatchesViewModel
-import com.example.test2023app.viewmodel.PlayersSearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +24,7 @@ class CricketMatchesActivity : AppCompatActivity() {
         binding = CricketMatchesActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewmodel =
-            ViewModelProvider(this).get<CricketMatchesViewModel>(CricketMatchesViewModel::class.java)
+            ViewModelProvider(this)[CricketMatchesViewModel::class.java]
         binding.btnCurrentMatches.setOnClickListener { getCurrentMatches() }
         observeResponse()
     }

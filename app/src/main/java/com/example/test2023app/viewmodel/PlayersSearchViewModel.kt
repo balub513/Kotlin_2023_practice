@@ -17,9 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class PlayersSearchViewModel @Inject constructor(
     private val repo: CricRepo,
-    private val dbRepository: RoomDBRepo,
-    application: Application
-) : BaseViewModel(application) {
+    private val dbRepository: RoomDBRepo
+) : BaseViewModel() {
 
     companion object {
         private const val TAG: String = "CricketMatchesViewModel"

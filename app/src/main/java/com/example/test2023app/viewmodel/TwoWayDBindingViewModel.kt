@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class TwoWayDBindingViewModel @Inject constructor(application: Application, repo: RoomDBRepo) :
-    BaseViewModel(application) {
+class TwoWayDBindingViewModel @Inject constructor(repo: RoomDBRepo) :
+    BaseViewModel() {
 
     var userObjStateFlow: MutableStateFlow<User?> = MutableStateFlow(null)
     var userNameFlow: MutableStateFlow<String> = MutableStateFlow("")
@@ -31,8 +31,6 @@ class TwoWayDBindingViewModel @Inject constructor(application: Application, repo
     fun registerButtonClicked() {
 
     }
-
-
 
 
 }
