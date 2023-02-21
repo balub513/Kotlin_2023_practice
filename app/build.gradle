@@ -70,6 +70,9 @@ dependencies {
     androidTestImplementation 'org.mockito:mockito-android:2.24.5'
     testImplementation "android.arch.core:core-testing:1.1.1"
 
+    // to mock the webserver -> to write test cases for Api Service class
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.0'
+
     // Dagger - Hilt
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-android-compiler:2.44"
