@@ -7,8 +7,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.test2023app.databinding.ActivityTwoWayDbindingBinding
-import com.example.test2023app.viewmodel.Gender
-import com.example.test2023app.viewmodel.Nation
+import com.example.test2023app.model.Gender
+import com.example.test2023app.model.Nation
 import com.example.test2023app.viewmodel.TwoWayDBindingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest

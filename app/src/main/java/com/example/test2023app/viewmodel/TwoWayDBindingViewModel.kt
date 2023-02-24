@@ -1,5 +1,7 @@
 package com.example.test2023app.viewmodel
 
+import com.example.test2023app.model.Gender
+import com.example.test2023app.model.Nation
 import com.example.test2023app.model.User
 import com.example.test2023app.repository.RoomDBRepo
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -5,9 +5,9 @@
 
     <data>
 
-        <import type="com.example.test2023app.viewmodel.Nation" />
+        <import type="com.example.test2023app.model.Nation" />
 
-        <import type="com.example.test2023app.viewmodel.Gender" />
+        <import type="com.example.test2023app.model.Gender" />
 
         <variable
             name="vm1"

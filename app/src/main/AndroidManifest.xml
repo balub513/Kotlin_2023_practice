@@ -79,7 +79,7 @@ xmlns:tools="http://schemas.android.com/tools">
             android:value="" />
     </activity>
     <activity
-        android:name="com.example.test2023app.view.OtherStuff"
+        android:name="com.example.test2023app.view.OtherStuffActivity"
         android:exported="false"
 
         >

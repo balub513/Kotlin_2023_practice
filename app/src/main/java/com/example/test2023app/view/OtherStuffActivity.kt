@@ -2,16 +2,14 @@ package com.example.test2023app.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.RemoteCallbackList
 import com.example.test2023app.R
-import com.example.test2023app.generated.callback.OnClickListener.Listener
 import com.example.test2023app.other.Sample
 import com.example.test2023app.other.callBackListener
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
 
-class OtherStuff : AppCompatActivity() {
+class OtherStuffActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_other_stuff)
