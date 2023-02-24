@@ -28,8 +28,9 @@ class TwoWayDBindingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTwoWayDbindingBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this)[TwoWayDBindingViewModel::class.java]
-        binding.vm1 = viewModel
         setContentView(binding.root)
+        binding.lifecycleOwner = this
+        binding.vm1 = viewModel
         binding.register.setOnClickListener { getAllValues() }
         attachObservers()
     }
