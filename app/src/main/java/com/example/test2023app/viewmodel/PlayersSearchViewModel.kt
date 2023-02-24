@@ -1,17 +1,15 @@
 package com.example.test2023app.viewmodel
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.viewModelScope
-import com.example.test2023app.repository.RoomDBRepo
+import com.example.blib.safeLaunchFromModule
 import com.example.test2023app.di.module.db_module.UserEntity
 import com.example.test2023app.model.response.players_match.Player
 import com.example.test2023app.repository.CricRepo
+import com.example.test2023app.repository.RoomDBRepo
 import com.example.test2023app.utils.safeLaunch
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
@@ -53,10 +51,11 @@ class PlayersSearchViewModel @Inject constructor(
 
 
     private fun testDB() {
-        safeLaunch(Dispatchers.IO) {
+        safeLaunchFromModule {
             dbRepository.insertUser(UserEntity(name = "BALU", email = "balub513@gmail.com"))
             val users = dbRepository.fetchUsers()
             Log.d("Users", users.toString())
         }
+
     }
 }
