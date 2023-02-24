@@ -4,11 +4,8 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
-import com.example.test2023app.R
 import com.example.test2023app.databinding.ActivityTwoWayDbindingBinding
 import com.example.test2023app.viewmodel.Gender
 import com.example.test2023app.viewmodel.Nation
@@ -40,16 +37,16 @@ class TwoWayDBindingActivity : AppCompatActivity() {
     private fun getAllValues() {
         lifecycleScope.launch {
             val userName: String = viewModel.userNameFlow.value
-            val email: String = viewModel.emailFlow.value
+            val email: String = viewModel.emailFlow1.value
             val password: String = viewModel.passwordFlow.value
             val nationality: Nation = viewModel.nationalityFlow.value
             val gender: Gender = viewModel.genderFlow.value
 
-            Log.d("$TAG -->>", userName)
-            Log.d("$TAG -->>", email)
-            Log.d("$TAG -->>", password)
-            Log.d("$TAG -->>", nationality.toString())
-            Log.d("$TAG -->>", gender.toString())
+            Log.d("$TAG:", userName)
+            Log.d("$TAG:", email)
+            Log.d("$TAG:", password)
+            Log.d("$TAG:", nationality.toString())
+            Log.d("$TAG:", gender.toString())
         }
     }
 
@@ -62,7 +59,7 @@ class TwoWayDBindingActivity : AppCompatActivity() {
             }
         }
         lifecycleScope.launch {
-            viewModel.emailFlow.collectLatest {
+            viewModel.emailFlow1.collectLatest {
                 Log.d("$TAG emailFlow", it)
             }
         }

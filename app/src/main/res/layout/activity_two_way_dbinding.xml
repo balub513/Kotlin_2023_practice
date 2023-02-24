@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Email"
-            android:text="@={vm1.emailFlow}"
+            android:text="@={vm1.emailFlow1}"
             app:layout_constraintLeft_toRightOf="@id/guideline_v"
             app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
@@ -197,7 +197,7 @@
             android:id="@+id/tvDbResults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{vm1.emailFlow}"
+            android:text="@{vm1.emailFlow1}"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
