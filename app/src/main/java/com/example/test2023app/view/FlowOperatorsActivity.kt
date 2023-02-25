@@ -26,5 +26,8 @@ class FlowOperatorsActivity : AppCompatActivity() {
         binding.btnWithContextTwoAPICalls.setOnClickListener{
             viewModel.playersAndPlayersInfoParallelCall2()
         }
+        binding.btnWithOperators.setOnClickListener {
+            viewModel.flowsOps()
+        }
     }
 }

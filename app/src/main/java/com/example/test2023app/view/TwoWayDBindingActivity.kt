@@ -4,8 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.*
 import com.example.test2023app.databinding.ActivityTwoWayDbindingBinding
 import com.example.test2023app.model.Gender
 import com.example.test2023app.model.Nation
@@ -79,5 +78,27 @@ class TwoWayDBindingActivity : AppCompatActivity() {
                 Log.d("$TAG genderFlow", it.toString())
             }
         }
+
+        // for single flow to collect and bind with life cycle we can use 'flowWithLifecycle'
+        lifecycleScope.launch {
+            viewModel.emailFlow1
+                .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+                .collectLatest {
+                    Log.d("$TAG emailFlow", it.toString())
+                }
+        }
+
+        // for multiple flows to collect and bind with life cycle we can use 'repeatOnLifecycle' and it is suspend function
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.emailFlow1.collectLatest {
+
+                }
+                viewModel.genderFlow.collectLatest {
+
+                }
+            }
+        }
+
     }
 }

@@ -4,7 +4,6 @@ package com.example.test2023app.viewmodel
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.moduelcreation.ModuleSingleton
 import com.example.test2023app.model.response.current_matches.CurrentMatches
 import com.example.test2023app.repository.CricRepo
 import com.example.test2023app.utils.CUtils
@@ -38,7 +37,6 @@ class CricketMatchesViewModel @Inject constructor(
 
 
     fun currentMatches() {
-        val currentTime = ModuleSingleton.getCurrentTime()
 
         safeLaunch {
             val currentMatches = repo.currentMatches()

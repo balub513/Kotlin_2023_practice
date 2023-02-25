@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Test2023App"
 include ':app'
 include ':BLib'
-include ':mymodule'
+//include ':mymodule'

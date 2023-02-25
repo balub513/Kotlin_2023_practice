@@ -8,8 +8,10 @@ import com.example.test2023app.model.response.players_info.PlayersInfo
 import com.example.test2023app.model.response.players_match.MatchedPlayers
 import com.example.test2023app.repository.CricRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
@@ -62,5 +64,28 @@ class FlowOperatorsViewModel @Inject constructor(application: Application, var r
     private fun handleResponses(resp1: Response<MatchedPlayers>, resp2: Response<PlayersInfo>) {
         Log.d("matchedPlayersResponse", resp1.body().toString())
         Log.d("playerInfo", resp2.body().toString())
+    }
+
+    fun flowsOps() {
+
+        val flow = (1..10).asFlow()
+            .filter {
+                it%2 == 0
+            }
+            .map { it.toDouble() }
+            .onEach {
+                it*10
+            }
+            .buffer(2)
+            .flowOn(Dispatchers.IO)
+
+        viewModelScope.launch(Dispatchers.Main) {
+            flow.onEach {
+                it * 2
+            }.collect {
+                Log.d("flowsOps -->> ", it.toString())
+            }
+        }
+
     }
 }

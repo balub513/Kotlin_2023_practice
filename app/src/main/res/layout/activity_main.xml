@@ -58,6 +58,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="RoomDB_ 2Way Data binding" />
+    <Button
+        android:id="@+id/btn_firebase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FireBase" />
 
 
 </LinearLayout>

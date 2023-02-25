@@ -20,5 +20,10 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="Multiple API calls with withContext" />
+  <Button
+      android:id="@+id/btn_with_operators"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Flow builder operators" />
 
   </LinearLayout>

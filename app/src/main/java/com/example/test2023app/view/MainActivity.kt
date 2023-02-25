@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.test2023app.databinding.ActivityMainBinding
+import com.example.test2023app.firebase.FireBaseActivity
 import com.example.test2023app.view.players_navigation_jetpack.PlayersActivityNAV
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnRoomDbTwoWayDatabinding.setOnClickListener {
             startActivity(Intent(this, RoomActivity::class.java))
+        }
+        binding.btnFirebase.setOnClickListener {
+            startActivity(Intent(this, FireBaseActivity::class.java))
         }
 
     }
