@@ -52,7 +52,7 @@ class PlayersSearchViewModel @Inject constructor(
 
     private fun testDB() {
         safeLaunchFromModule {
-            dbRepository.insertUser(UserEntity(name = "BALU", email = "balub513@gmail.com"))
+            dbRepository.insertUser(UserEntity(name = "BALU", age = "10"))
             val users = dbRepository.fetchUsers()
             Log.d("Users", users.toString())
         }

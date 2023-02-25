@@ -48,6 +48,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnTwoWayDatabinding.setOnClickListener {
             startActivity(Intent(this, TwoWayDBindingActivity::class.java))
         }
+        binding.btnRoomDbTwoWayDatabinding.setOnClickListener {
+            startActivity(Intent(this, RoomActivity::class.java))
+        }
 
     }
 }

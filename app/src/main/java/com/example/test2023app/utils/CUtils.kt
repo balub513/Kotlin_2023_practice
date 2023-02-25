@@ -1,8 +1,7 @@
 package com.example.test2023app.utils
 
-class CUtils {
+object CUtils {
 
-    companion object{
-        val APIKEY = ""
-    }
+    const val CHANNEL_NAVIGATE_TO_SERIES_INFO = "NavigateToSeriesInfo"
+
 }
