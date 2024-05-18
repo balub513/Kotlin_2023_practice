@@ -23,6 +23,9 @@ interface CricService {
     @GET("series")
     suspend fun series(@Query("apikey") apiKey: String = NetworkModule.API_KEY): Response<Series>
 
+    @GET("series")
+    suspend fun series1(@Query("apikey") apiKey: String = NetworkModule.API_KEY): Series
+
     @GET("countries")
     suspend fun countryList(): Response<Countries>
 

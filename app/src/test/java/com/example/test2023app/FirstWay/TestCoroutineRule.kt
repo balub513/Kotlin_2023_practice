@@ -1,4 +1,4 @@
-package com.example.test2023app.utils
+package com.example.test2023app.FirstWay
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

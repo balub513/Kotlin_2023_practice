@@ -3,6 +3,8 @@ package com.example.test2023app.view.players_navigation_jetpack
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.test2023app.R
 import com.example.test2023app.databinding.FragmentPlayersSearchNavBinding
 import com.example.test2023app.utils.safeLaunch
@@ -31,7 +33,7 @@ class PlayersSearchFragmentNAV :
         binding.vm = vm
         initAdapter()
         binding.btnSearchPlayer.setOnClickListener {
-            // findNavController().navigate(PlayersSearchFragmentNAVDirections.actionPlayersSearchFragmentToPlayerInfoFragment(101,"Balu","IND"))
+             findNavController().navigate(PlayersSearchFragmentNAVDirections.actionPlayersSearchFragmentToPlayerInfoFragment(101,"Balu","IND"))
             binding.etPlayerSearch.text?.let { vm.playersByName(binding.etPlayerSearch.text.toString()) }
         }
 
@@ -42,6 +44,8 @@ class PlayersSearchFragmentNAV :
                     vm.playersByName(it)
                 }
         }
+
+
     }
 
     override fun setObservers() {

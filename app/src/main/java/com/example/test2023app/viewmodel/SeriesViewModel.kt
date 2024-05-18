@@ -8,7 +8,6 @@ import com.example.test2023app.model.response.serieses.Series
 import com.example.test2023app.repository.CricRepo
 import com.example.test2023app.utils.safeLaunch
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import retrofit2.Response
 import javax.inject.Inject
@@ -25,9 +24,11 @@ class SeriesViewModel @Inject constructor(
 
     var responseSeries: MutableStateFlow<NetworkResult<Response<Series>>?> =
         MutableStateFlow(null)
+    var seriesLiveData: MutableLiveData<NetworkResult<Series>?> =
+        MutableLiveData()
 
     fun series() {
-        Log.d(TAG,"seriesInfo sealed")
+        Log.d(TAG, "seriesInfo sealed")
         responseSeries.value = NetworkResult.Loading()
         safeLaunch {
             val response = repo.series()
@@ -37,9 +38,23 @@ class SeriesViewModel @Inject constructor(
                     responseSeries.value = success
                 }
                 else -> {
-                    NetworkResult.Error("message = ", null)
+                    responseSeries.value = NetworkResult.Error("", null)
                 }
             }
+        }
+    }
+
+    fun series1() {
+        Log.d(TAG, "seriesInfo sealed")
+        seriesLiveData.value = NetworkResult.Loading()
+        safeLaunch {
+            val response = repo.series1()
+            if (response.data.size > 0) {
+                seriesLiveData.value = NetworkResult.Success(response)
+            } else {
+                seriesLiveData.value = NetworkResult.Error("", null)
+            }
+
         }
     }
 }

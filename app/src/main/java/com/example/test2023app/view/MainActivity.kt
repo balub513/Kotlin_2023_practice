@@ -4,19 +4,32 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.example.test2023app.databinding.ActivityMainBinding
 import com.example.test2023app.view.players_navigation_jetpack.PlayersActivityNAV
+import com.example.test2023app.withoutDI.repo.TodoDatabase
+import com.example.test2023app.withoutDI.repo.TodoRepository
+import com.example.test2023app.withoutDI.vm.MyViewModelFactory
+import com.example.test2023app.withoutDI.vm.TodoViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: TodoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var repo  = TodoRepository(TodoDatabase.getDatabase(application).getTodoDao())
+        viewModel = ViewModelProviders.of(this, MyViewModelFactory(application,repo))[TodoViewModel::class.java]
 
         binding.btnFlowOpearators.setOnClickListener{
             startActivity(Intent(this, FlowOperatorsActivity::class.java))
+
+            val name = viewModel.getName()
+            Toast.makeText(this,"$name from VM",Toast.LENGTH_LONG).show()
         }
         binding.btnCurrentMatches.setOnClickListener {
             startActivity(Intent(this, CricketMatchesActivity::class.java))

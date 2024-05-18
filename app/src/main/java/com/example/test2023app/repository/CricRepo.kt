@@ -7,6 +7,8 @@ open class CricRepo @Inject constructor(private val service: CricService) {
 
     suspend fun currentMatches() = service.currentMatches()
     suspend fun series() = service.series()
+
+    suspend fun series1() = service.series1()
     suspend fun seriesInfo() = service.seriesInfo()
     suspend fun playersListByName(playerName : String) = service.playersListByName(search = playerName)
 
