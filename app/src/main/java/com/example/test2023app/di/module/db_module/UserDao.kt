@@ -20,7 +20,7 @@ interface UserDao {
     suspend fun deleteUser(userEntity: UserEntity)
 
     @Query("SELECT * FROM ${DBConstants.USER_TABLE} ORDER BY name DESC")
-    suspend fun getAllUsers(): MutableList<UserEntity>
+    suspend fun getAllUsers(): List<UserEntity>
 
     @Query("SELECT * FROM ${DBConstants.USER_TABLE} WHERE userId LIKE :id")
     suspend fun getUserByID(id: Int): UserEntity

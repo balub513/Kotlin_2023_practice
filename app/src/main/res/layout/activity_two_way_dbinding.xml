@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.test2023app.model.Nation" />
+
+        <import type="com.example.test2023app.model.Gender" />
+
+        <variable
+            name="vm1"
+            type="com.example.test2023app.viewmodel.TwoWayDBindingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.TwoWayDBindingActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/tv_signup_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="SIGNUP"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textColor="@color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/et_username"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/guideline_v" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="User Name"
+            android:text="@={vm1.userNameFlow}"
+            app:layout_constraintLeft_toRightOf="@id/guideline_v"
+            app:layout_constraintTop_toBottomOf="@id/tv_signup_title" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/et_email"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/guideline_v"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Email"
+            android:text="@={vm1.emailFlow1}"
+            app:layout_constraintLeft_toRightOf="@id/guideline_v"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+        <TextView
+            android:id="@+id/tv_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="@color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/et_pwd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/guideline_v"
+            app:layout_constraintTop_toBottomOf="@id/tv_email" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Password"
+            android:text="@={vm1.passwordFlow}"
+            app:layout_constraintLeft_toRightOf="@id/guideline_v"
+            app:layout_constraintTop_toBottomOf="@id/tv_email" />
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_pwd">
+
+            <RadioButton
+                android:id="@+id/rdIndia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="@{vm1.nationalityFlow.equals(Nation.INDIA)}"
+                android:onClick="@{()->vm1.setNation(Nation.INDIA)}"
+                android:text="INDIA" />
+
+            <RadioButton
+                android:id="@+id/rdPak"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="@{vm1.nationalityFlow.equals(Nation.PAK)}"
+                android:onClick="@{()->vm1.setNation(Nation.PAK)}"
+                android:text="Pakistan" />
+
+            <RadioButton
+                android:id="@+id/rdSouthAfrica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="@{vm1.nationalityFlow.equals(Nation.SA)}"
+                android:onClick="@{()->vm1.setNation(Nation.SA)}"
+                android:text="SouthAfrica" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{vm1.genderFlow.equals(Gender.MALE)}"
+            android:onClick="@{()->vm1.setGender(Gender.MALE)}"
+            android:text="Male"
+            app:layout_constraintBaseline_toBaselineOf="@+id/female"
+            app:layout_constraintEnd_toStartOf="@+id/female"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{vm1.genderFlow.equals(Gender.FEMALE)}"
+            android:onClick="@{()->vm1.setGender(Gender.FEMALE)}"
+            android:text="Female"
+            app:layout_constraintBaseline_toBaselineOf="@+id/unknown"
+            app:layout_constraintEnd_toStartOf="@+id/unknown"
+            app:layout_constraintStart_toEndOf="@+id/male" />
+
+        <CheckBox
+            android:id="@+id/unknown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:checked="@{vm1.genderFlow.equals(Gender.UNKNOWN)}"
+            android:onClick="@{()->vm1.setGender(Gender.UNKNOWN)}"
+            android:text="UnKnown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/female"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/black"
+            android:text="REGISTER"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/male" />
+
+        <TextView
+            android:id="@+id/tvDbResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{vm1.emailFlow1}"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

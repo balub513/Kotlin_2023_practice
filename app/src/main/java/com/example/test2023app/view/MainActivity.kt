@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.test2023app.databinding.ActivityMainBinding
+import com.example.test2023app.firebase.FireBaseActivity
 import com.example.test2023app.view.players_navigation_jetpack.PlayersActivityNAV
 import com.example.test2023app.withoutDI.repo.TodoDatabase
 import com.example.test2023app.withoutDI.repo.TodoRepository
@@ -57,6 +58,15 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnConstrainlayout.setOnClickListener {
             startActivity(Intent(this, ConstrainLayoutActivity::class.java))
+        }
+        binding.btnTwoWayDatabinding.setOnClickListener {
+            startActivity(Intent(this, TwoWayDBindingActivity::class.java))
+        }
+        binding.btnRoomDbTwoWayDatabinding.setOnClickListener {
+            startActivity(Intent(this, RoomActivity::class.java))
+        }
+        binding.btnFirebase.setOnClickListener {
+            startActivity(Intent(this, FireBaseActivity::class.java))
         }
 
     }

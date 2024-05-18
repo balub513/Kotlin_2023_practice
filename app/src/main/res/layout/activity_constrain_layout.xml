@@ -134,28 +134,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Male"
-        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox2"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/female"
+        app:layout_constraintEnd_toStartOf="@+id/female"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/female"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Female"
-        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox3"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/unknown"
+        app:layout_constraintEnd_toStartOf="@+id/unknown"
         app:layout_constraintStart_toEndOf="@+id/checkBox" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/unknown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="UnKnown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+        app:layout_constraintStart_toEndOf="@+id/female"
         app:layout_constraintTop_toBottomOf="@id/radioGroup" />
 
     <TextView
@@ -165,7 +165,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="#AAA"
-        android:text="ABCDEFGHIJdsaasaSAsaSAsaSAaSasaAsaSAsaSAsaSgaskjhGASjhdgjhgjdgaGDdsadKLMNOPQRSTUVWXYZ"
+        android:text="Hello 123,lkasjdlsakDLADa"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/right_text_view"
         app:layout_constraintEnd_toStartOf="@+id/right_text_view"
@@ -181,7 +181,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="#Dee"
-        android:text="dsadjsakwdsaasdasdsadasdasdasDSADS/nsadsadaSAsaSasaSasaSasdsasdnnnnnnbmnbmadasadsaddjsakjdas"
+        android:text="Hi How are tou asdasdsa"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -202,6 +202,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="B123"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barrier" />

@@ -7,6 +7,7 @@ import com.example.test2023app.model.response.players_match.MatchedPlayers
 import com.example.test2023app.model.response.series_info.SeriesInfo
 import com.example.test2023app.model.response.serieses.Series
 import com.example.test2023app.di.module.NetworkModule
+import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -16,6 +17,10 @@ interface CricService {
     @GET("currentMatches")
     suspend fun currentMatches(@Query("apikey") apiKey: String = NetworkModule.API_KEY):
             Response<CurrentMatches>
+
+    @GET("currentMatches")
+    fun currentMatchesRx(@Query("apikey") apiKey: String = NetworkModule.API_KEY):
+            Single<CurrentMatches>
 
     @GET("series_info")
     suspend fun seriesInfo(@Query("apikey") apiKey: String = NetworkModule.API_KEY): Response<SeriesInfo>

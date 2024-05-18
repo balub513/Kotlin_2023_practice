@@ -13,7 +13,16 @@ xmlns:tools="http://schemas.android.com/tools">
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.Test2023App"
+    tools:replace="android:theme"
     tools:targetApi="31">
+    <service
+        android:name=".firebase.MyFirebaseMessagingService"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+    </service>
+
     <activity
         android:name="com.example.test2023app.view.DataStoreActivity"
         android:exported="false">
@@ -33,6 +42,15 @@ xmlns:tools="http://schemas.android.com/tools">
     <activity
         android:name=".view.CricketMatchesActivity"
         android:exported="false">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
+    <activity
+        android:name="com.example.test2023app.firebase.FireBaseActivity"
+        android:exported="false"
+
+        >
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
@@ -67,11 +85,42 @@ xmlns:tools="http://schemas.android.com/tools">
     <activity android:name=".view.SeriesActivitySealed"></activity>
     <activity
         android:name="com.example.test2023app.view.ConstrainLayoutActivity"
-        android:exported="false"
-        />
+        android:exported="false" />
     <activity
         android:name="com.example.test2023app.view.FlowOperatorsActivity"
         android:exported="false" />
+    <activity
+        android:name="com.example.test2023app.view.TwoWayDBindingActivity"
+        android:exported="false">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
+    <activity
+        android:name="com.example.test2023app.view.OtherStuffActivity"
+        android:exported="false"
+
+        >
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
+    <activity
+        android:name=".view.TwoWayDBindingActivity"
+        android:exported="false">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
+    <activity
+        android:name="com.example.test2023app.view.RoomActivity"
+        android:exported="false"
+
+        >
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
 </application>
 
 </manifest>

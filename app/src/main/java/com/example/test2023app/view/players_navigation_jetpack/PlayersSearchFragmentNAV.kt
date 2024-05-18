@@ -7,7 +7,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.test2023app.R
 import com.example.test2023app.databinding.FragmentPlayersSearchNavBinding
-import com.example.test2023app.utils.safeLaunch
 import com.example.test2023app.utils.safeLaunchWhenResume
 import com.example.test2023app.view.adapters.PlayersAdapter
 import com.example.test2023app.viewmodel.PlayersSearchViewModel
@@ -66,9 +65,5 @@ class PlayersSearchFragmentNAV :
     private fun initAdapter() {
         playersAdapter = PlayersAdapter(ArrayList(), requireContext())
         binding.rvSearchedPlayers.adapter = playersAdapter
-
-
     }
-
-
 }

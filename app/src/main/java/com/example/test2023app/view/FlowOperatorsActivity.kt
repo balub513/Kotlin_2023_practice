@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.test2023app.databinding.ActivityFlowOperatorsBinding
 import com.example.test2023app.viewmodel.FlowOperatorsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.concurrent.Task
+import kotlin.coroutines.suspendCoroutine
 
 @AndroidEntryPoint
 class FlowOperatorsActivity : AppCompatActivity() {
@@ -24,6 +26,8 @@ class FlowOperatorsActivity : AppCompatActivity() {
         binding.btnWithContextTwoAPICalls.setOnClickListener{
             viewModel.playersAndPlayersInfoParallelCall2()
         }
-
+        binding.btnWithOperators.setOnClickListener {
+            viewModel.flowsOps()
+        }
     }
 }

@@ -11,4 +11,6 @@ class RoomDBRepo @Inject constructor(private val repo: UserDao) {
 
     suspend fun fetchUsers() = repo.getAllUsers()
 
+    suspend fun getUserById(id: Int) = repo.getUserByID(id)
+
 }
