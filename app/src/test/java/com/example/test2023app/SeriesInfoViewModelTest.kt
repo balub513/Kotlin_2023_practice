@@ -66,7 +66,7 @@ class SeriesInfoViewModelTest {
         testCoroutineRule.runBlockingTest {
             Mockito.`when`(service.series1()).thenReturn(getMockSuccessResponse())
             Mockito.`when`(repo.series1()).thenReturn(getMockSuccessResponse())
-            val vm = SeriesViewModel(repo, application)
+            val vm = SeriesViewModel(repo)
             vm.series1()
             assertEquals(vm.seriesLiveData.getOrAwaitValue()?.data?.data?.size, 10)
         }
@@ -77,7 +77,7 @@ class SeriesInfoViewModelTest {
         runTest {
             Mockito.`when`(service.series1()).thenReturn(getMockSuccessResponse())
             Mockito.`when`(repo.series1()).thenReturn(getMockSuccessResponse())
-            val vm = SeriesViewModel(repo, application)
+            val vm = SeriesViewModel(repo)
             vm.series1()
             assertEquals(vm.seriesLiveData.getOrAwaitValue {  }?.data?.data?.size, 10)
         }
