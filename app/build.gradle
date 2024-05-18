@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace 'com.example.test2023app'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.test2023app"
         minSdk 21
-        targetSdk 34
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -125,6 +125,8 @@ dependencies {
 //    api 'com.google.dagger:dagger-android:2.44'
 //    api 'com.google.dagger:dagger-android-support:2.44'
 //    kapt 'com.google.dagger:dagger-android-processor:2.44'
+
+    testImplementation "org.robolectric:robolectric:4.10.3"
 
 
 }
