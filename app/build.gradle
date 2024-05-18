@@ -141,8 +141,13 @@ dependencies {
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
 
-
+    // View model with application contecxt (test cases)
     testImplementation "org.robolectric:robolectric:4.10.3"
 
+    // these two lines are added for dagger
+
+    implementation "com.google.dagger:dagger:2.44"
+
+    annotationProcessor "com.google.dagger:dagger-compiler:2.44"
 
 }
