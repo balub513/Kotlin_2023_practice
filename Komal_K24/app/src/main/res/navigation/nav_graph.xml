@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/primaryFragment">
+    <fragment android:id="@+id/primaryFragment"
+        android:name="com.example.komalkotlin2024.PrimaryFragment"
+        android:label="primary_fragment"
+        tools:layout="@layout/fragment_primary"/>
+    <fragment android:id="@+id/usersFragment"
+        android:name="com.example.komalkotlin2024.mvvm.UsersFragment"
+        android:label="users_fragment"
+        tools:layout="@layout/fragment_users"/>
+    <fragment android:id="@+id/loginFragment"
+        android:name="com.example.komalkotlin2024.roomdb.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/fragment_login"/>
+    <fragment android:id="@+id/postsFragment"
+        android:name="com.example.komalkotlin2024.mvvm.PostsFragment"
+        android:label="posts_fragment"
+        tools:layout="@layout/fragment_posts"/>
+
+    <action
+        android:id="@+id/action_primary_fragment_to_users_fragment"
+        app:destination="@id/usersFragment"
+        app:popUpTo="@id/primaryFragment"/>
+    <action/>
+    <!--<action
+        android:id="@+id/action_users_fragment_to_primary_fragment"
+        app:popUpTo="@id/primaryFragment"/>
+    <action/>-->
+    <action
+        android:id="@+id/action_primary_fragment_to_posts_fragment"
+        app:destination="@id/postsFragment"
+        app:popUpTo="@id/primaryFragment"/>
+    <action/>
+    <!--<action
+        android:id="@+id/action_posts_fragment_to_primary_fragment"
+        app:popUpTo="@id/primaryFragment"/>
+    <action/>-->
+    <action
+        android:id="@+id/action_primary_fragment_to_login_fragment"
+        app:destination="@id/loginFragment"/>
+    <action/>
+
+<!--
+    seperate action also we can define for pop back
+-->
+    <action
+        android:id="@+id/action_login_fragment_to_primary_fragment"
+        app:popUpTo="@id/primaryFragment"/>
+    <action/>
+
+</navigation>
