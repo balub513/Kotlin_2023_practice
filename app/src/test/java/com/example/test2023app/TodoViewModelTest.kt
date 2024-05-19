@@ -12,6 +12,7 @@ import com.example.test2023app.repository.CricRepo
 import com.example.test2023app.service.CricService
 import com.example.test2023app.SecondWay.MainCoroutineRule
 import com.example.test2023app.viewmodel.SeriesViewModel
+import com.example.test2023app.withoutDI.repo.Todo
 import com.example.test2023app.withoutDI.repo.TodoDao
 import com.example.test2023app.withoutDI.repo.TodoRepository
 import com.example.test2023app.withoutDI.vm.TodoViewModel
@@ -64,6 +65,13 @@ class TodoViewModelTest {
     fun testGetName(){
         val name = todoViewModel.getName()
         Assert.assertEquals(name,"BALU")
+    }
+    @Test
+    fun testInsertDemo(){
+      runTest {
+          todoViewModel.insertTodo(Todo(1,"ZSZ","sa","12"))
+
+      }
     }
 
 
